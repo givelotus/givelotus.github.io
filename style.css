@@ -166,15 +166,17 @@ header {
 .argument-eyebrow {
   font-family: var(--font-mono); font-size: 11px; font-weight: 500;
   color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 20px; text-align: center;
 }
 .argument-title {
   font-size: clamp(22px, 3.5vw, 34px); font-weight: 700;
   letter-spacing: -0.03em; color: var(--text);
   max-width: 680px; margin-bottom: 0; line-height: 1.2;
+  margin-left: auto; margin-right: auto;
 }
 .argument-body {
   max-width: 680px; margin-top: 24px;
+  margin-left: auto; margin-right: auto;
 }
 .argument-body > p {
   font-family: var(--font-serif); font-size: 17px;
@@ -440,6 +442,8 @@ footer { padding: 36px 0; }
 .dl-btn--vi:hover { background: #da251d; color: #fff; }
 .dl-btn--hi { border-color: #ff9933; color: #ff9933; background: rgba(255,153,51,0.08); }
 .dl-btn--hi:hover { background: #ff9933; color: #000; }
+.dl-btn--ar { border-color: #009736; color: #009736; background: rgba(0,151,54,0.08); }
+.dl-btn--ar:hover { background: #009736; color: #fff; }
 
 /* ── Patreon button ── */
 .btn--patreon {

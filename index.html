@@ -87,7 +87,7 @@
       </a>
       <a href="#" class="btn btn--ghost" id="download-all">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download All (6 PDFs)
+        Download All (15 PDFs)
       </a>
     </div>
     <div class="hero-stats">
@@ -97,7 +97,7 @@
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-num">2</span>
+        <span class="stat-num">5</span>
         <span class="stat-label">Languages</span>
       </div>
       <div class="stat-divider"></div>
@@ -284,6 +284,10 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             हिन्दी
           </a>
+          <a href="pdfs/consensus-energy-ar.pdf" class="dl-btn dl-btn--ar" download>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            العربية
+          </a>
         </div>
       </div>
       <h2 class="paper-title">Security Expenditure, Energy, and Issuance Legibility in Permissionless Consensus</h2>
@@ -373,6 +377,10 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             हिन्दी
           </a>
+          <a href="pdfs/adaptive-pow-ar.pdf" class="dl-btn dl-btn--ar" download>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            العربية
+          </a>
         </div>
       </div>
       <h2 class="paper-title">Adaptive PoW Monetary Policy Without Oracles: A Constructive Mechanism for Pseudo-Stability via Work-Coupled Tail Emission and Burn</h2>
@@ -459,6 +467,10 @@
           <a href="pdfs/cashweb-hi.pdf" class="dl-btn dl-btn--hi" download>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             हिन्दी
+          </a>
+          <a href="pdfs/cashweb-ar.pdf" class="dl-btn dl-btn--ar" download>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            العربية
           </a>
         </div>
       </div>
@@ -655,11 +667,11 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 document.getElementById('download-all').addEventListener('click', function(e) {
   e.preventDefault();
   ['pdfs/consensus-energy-en.pdf','pdfs/consensus-energy-zh.pdf',
-   'pdfs/consensus-energy-vi.pdf','pdfs/consensus-energy-hi.pdf',
+   'pdfs/consensus-energy-vi.pdf','pdfs/consensus-energy-hi.pdf','pdfs/consensus-energy-ar.pdf',
    'pdfs/adaptive-pow-en.pdf','pdfs/adaptive-pow-zh.pdf',
-   'pdfs/adaptive-pow-vi.pdf','pdfs/adaptive-pow-hi.pdf',
+   'pdfs/adaptive-pow-vi.pdf','pdfs/adaptive-pow-hi.pdf','pdfs/adaptive-pow-ar.pdf',
    'pdfs/cashweb-en.pdf','pdfs/cashweb-zh.pdf',
-   'pdfs/cashweb-vi.pdf','pdfs/cashweb-hi.pdf'].forEach((url, i) => {
+   'pdfs/cashweb-vi.pdf','pdfs/cashweb-hi.pdf','pdfs/cashweb-ar.pdf'].forEach((url, i) => {
     setTimeout(() => {
       const a = Object.assign(document.createElement('a'), {href:url, download:url.split('/').pop()});
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
