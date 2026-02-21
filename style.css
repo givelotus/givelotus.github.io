@@ -172,12 +172,10 @@ header {
 .argument-title {
   font-size: clamp(22px, 3.5vw, 34px); font-weight: 700;
   letter-spacing: -0.03em; color: var(--text);
-  max-width: 680px; margin-bottom: 0; line-height: 1.2;
-  margin-left: auto; margin-right: auto;
+  margin-bottom: 0; line-height: 1.2; text-align: center;
 }
 .argument-body {
-  max-width: 680px; margin-top: 24px;
-  margin-left: auto; margin-right: auto;
+  margin-top: 24px;
 }
 .argument-body > p {
   font-family: var(--font-serif); font-size: 17px;
@@ -459,6 +457,7 @@ footer { padding: 36px 0; }
   border-bottom: 1px solid var(--border);
   background: linear-gradient(135deg, rgba(240,165,0,0.03) 0%, transparent 50%);
 }
+.lotus-story .container { max-width: 760px; }
 .lotus-inner {
   display: flex; gap: 40px; align-items: flex-start;
 }
