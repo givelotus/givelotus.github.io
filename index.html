@@ -3,25 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lotus Network — Research Papers</title>
+  <title>Lotus Network — The Economics of Trust-Minimized Money</title>
+
+  <!-- SEO & OG -->
+  <meta name="description" content="Three companion papers establishing Proof-of-Work as a legible security substrate for oracle-free monetary policy and decentralized anti-spam communication.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://givelotus.github.io">
+  <meta property="og:title" content="The Economics of Trust-Minimized Money — Lotus Network Research">
+  <meta property="og:description" content="Three papers. One argument. PoW security expenditure is real, legible, and the foundation for monetary policy that requires no committees, no oracles, no trust.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Economics of Trust-Minimized Money">
+  <meta name="twitter:description" content="Three papers proving PoW enables oracle-free monetary policy and decentralized anti-spam. Formally stable. No committees required.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError: false
+    });"></script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ── HEADER ─────────────────────────────────────────── -->
-<header>
+<!-- ── HEADER ── -->
+<header id="top">
   <div class="header-inner">
-    <a href="#" class="logo">
-      <svg class="logo-hex" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a href="#top" class="logo">
+      <svg class="logo-hex" viewBox="0 0 32 32" fill="none">
         <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#f0a500" stroke-width="1.5" fill="none"/>
-        <polygon points="16,8 23,12 23,20 16,24 9,20 9,12" stroke="#f0a500" stroke-width="1" fill="none" opacity="0.4"/>
+        <polygon points="16,8 23,12 23,20 16,24 9,20 9,12" stroke="#f0a500" stroke-width="1" fill="none" opacity="0.45"/>
+        <circle cx="16" cy="16" r="2.5" fill="#f0a500" opacity="0.6"/>
       </svg>
       Lotus Network
     </a>
     <nav class="header-nav">
+      <a href="#argument">The Argument</a>
       <a href="#consensus-energy">01</a>
       <a href="#adaptive-pow">02</a>
       <a href="#cashweb">03</a>
@@ -33,26 +63,33 @@
   </div>
 </header>
 
-<!-- ── HERO ───────────────────────────────────────────── -->
+<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-bg">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
+    <canvas id="hex-canvas"></canvas>
+    <div class="hero-glow-top"></div>
+    <div class="hero-glow-bottom"></div>
   </div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Preprints · 2026</div>
+    <div class="hero-eyebrow">Research Preprints &middot; 2026</div>
     <h1 class="hero-title">
       The Economics of<br>
       <span class="hero-accent">Trust-Minimized Money</span>
     </h1>
     <p class="hero-sub">
-      Three companion papers establishing the theoretical foundation for Proof-of-Work
-      as a legible, adversarially-revealed security substrate — and its extension into
-      oracle-free monetary policy and decentralized spam-resistant communication.
+      Three companion papers proving that Proof-of-Work is a measurement instrument,
+      a monetary stabilizer, and a foundation for decentralized communication —
+      all without committees, oracles, or institutional trust.
     </p>
     <div class="hero-actions">
-      <a href="#triad" class="btn btn--primary">Read the Research</a>
-      <a href="#" class="btn btn--ghost" id="download-all">Download All (EN+ZH)</a>
+      <a href="#argument" class="btn btn--primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg>
+        Read the Argument
+      </a>
+      <a href="#" class="btn btn--ghost" id="download-all">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download All (6 PDFs)
+      </a>
     </div>
     <div class="hero-stats">
       <div class="stat">
@@ -61,7 +98,7 @@
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-num">6</span>
+        <span class="stat-num">2</span>
         <span class="stat-label">Languages</span>
       </div>
       <div class="stat-divider"></div>
@@ -78,323 +115,359 @@
   </div>
 </section>
 
-<!-- ── TRIAD ──────────────────────────────────────────── -->
-<section class="triad" id="triad">
+<!-- ── THE ARGUMENT ── -->
+<section class="argument" id="argument">
   <div class="container">
-    <div class="section-label">The Paper Triad</div>
-    <h2 class="section-title">Three Papers, One Argument</h2>
-    <p class="section-sub">Each paper builds directly on the last. The chain of reasoning
-    runs from foundational security theory through monetary mechanism design to practical
-    protocol specification.</p>
+    <div class="argument-eyebrow">The Core Argument</div>
+    <h2 class="argument-title">Every monetary system in history has had a trust problem.</h2>
+    <div class="argument-body">
+      <p>Gold required trust in assayers. Paper required trust in central banks. Bitcoin solved
+      the issuance problem but left monetary policy — the question of <em>how much currency
+      should exist</em> — to a fixed schedule written in 2009.</p>
 
-    <div class="triad-flow">
-      <div class="triad-node">
-        <div class="triad-num">01</div>
-        <div class="triad-name">Consensus &amp; Energy</div>
-        <div class="triad-claim">PoW security expenditure is real, equilibrium-anchored,
-        and uniquely legible to the protocol via σ<sub>t</sub></div>
-      </div>
-      <div class="triad-arrow">
-        <svg viewBox="0 0 60 20" fill="none"><path d="M0 10 H52 M44 3 L52 10 L44 17" stroke="#f0a500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>enables</span>
-      </div>
-      <div class="triad-node">
-        <div class="triad-num">02</div>
-        <div class="triad-name">Adaptive Monetary Policy</div>
-        <div class="triad-claim">σ<sub>t</sub> drives oracle-free tail emission and
-        burn feedback; Lyapunov-stable for φ ∈ (0, 2+2γ)</div>
-      </div>
-      <div class="triad-arrow">
-        <svg viewBox="0 0 60 20" fill="none"><path d="M0 10 H52 M44 3 L52 10 L44 17" stroke="#f0a500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>requires</span>
-      </div>
-      <div class="triad-node">
-        <div class="triad-num">03</div>
-        <div class="triad-name">CashWeb Protocol</div>
-        <div class="triad-claim">Burn-to-speak provides the endogenous demand sink
-        for Paper 02 while solving decentralized anti-spam</div>
-      </div>
-    </div>
+      <p>These three papers answer a harder question: can a cryptographic protocol manage its
+      own monetary policy, responding to economic reality without trusting any committee, oracle,
+      or institution?</p>
 
-    <div class="triad-feedback">
-      <svg class="feedback-arrow" viewBox="0 0 400 40" fill="none">
-        <path d="M340 8 C340 30, 60 30, 60 8" stroke="#f0a500" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
-        <path d="M68 3 L60 8 L68 13" stroke="#f0a500" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-      </svg>
-      <span class="feedback-label">burn demand feeds back into price stability</span>
+      <p>The answer is yes. The proof runs through three steps.</p>
+
+      <div class="argument-steps">
+        <div class="argument-step reveal">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h3>PoW is a measurement instrument.</h3>
+            <p>When miners compete for block rewards, the difficulty they encounter is a live,
+            adversarially-revealed reading of how much the network is worth securing.
+            No comparable instrument exists in Proof-of-Stake — expenditure is displaced into
+            opaque channels the protocol cannot observe.</p>
+          </div>
+        </div>
+        <div class="argument-step reveal">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h3>That instrument drives a stable feedback controller.</h3>
+            <p>Tail emission tracks the work signal. A burn mechanism provides countervailing
+            demand. Together they form a two-loop control system that is provably Lyapunov-stable —
+            convergent by construction, oracle-free by design, manipulation-resistant by the
+            mathematics of sublinear response.</p>
+          </div>
+        </div>
+        <div class="argument-step reveal">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h3>The burn demand has a natural source.</h3>
+            <p>Burn-to-speak pricing for decentralized messaging creates exactly the endogenous
+            coin demand the monetary mechanism requires — while simultaneously solving the oldest
+            problem in distributed systems: how to prevent spam without a moderator.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="argument-close">The chain closes. No oracle enters. No committee votes.
+      The argument is complete.</p>
     </div>
   </div>
 </section>
 
-<!-- ── PAPERS ─────────────────────────────────────────── -->
-<div class="papers-section" id="papers">
-
-  <!-- ── PAPER 01 ── -->
-  <article class="paper" id="consensus-energy">
-    <div class="container">
-      <div class="paper-header">
-        <div class="paper-meta">
-          <span class="paper-tag">01 / Consensus Theory</span>
-          <div class="paper-downloads">
-            <a href="pdfs/consensus-energy-en.pdf" class="dl-btn" download>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              EN
-            </a>
-            <a href="pdfs/consensus-energy-zh.pdf" class="dl-btn dl-btn--zh" download>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              中文
-            </a>
-          </div>
-        </div>
-        <h2 class="paper-title">Security Expenditure, Energy, and Issuance Legibility in Permissionless Consensus</h2>
-        <p class="paper-author">Shammah Chancellor &mdash; Preprint, 2026</p>
-        <p class="paper-claim">
-          Proof-of-Work alone makes security expenditure legible to the protocol itself —
-          enabling oracle-free monetary policy that is structurally impossible in Proof-of-Stake systems.
-        </p>
+<!-- ── TRIAD ── -->
+<section class="triad" id="triad">
+  <div class="container">
+    <div class="section-label">Paper Dependencies</div>
+    <div class="triad-flow">
+      <div class="triad-node reveal">
+        <div class="triad-num">01</div>
+        <div class="triad-name">Consensus &amp; Energy</div>
+        <div class="triad-claim">Establishes $\sigma_t := \mathcal{H}_t/\Pi_t$ as a
+        protocol-visible security signal unique to PoW</div>
       </div>
-
-      <div class="paper-body">
-        <div class="paper-results">
-          <h3>Key Results</h3>
-          <div class="results-grid">
-            <div class="result-card">
-              <div class="result-label">Theorem</div>
-              <div class="result-title">Equilibrium Security Expenditure</div>
-              <p>In any permissionless consensus system offering an externally priced block reward,
-              rational attackers and defenders expend resources proportional to expected value at risk —
-              independent of whether the mechanism is PoW or PoS.</p>
-              <div class="result-math">𝔼[C<sup>def</sup><sub>t</sub>] ≳ 𝔼[C<sup>att</sup><sub>t</sub>] ≈ α · 𝔼[V<sub>t</sub>]</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Theorem</div>
-              <div class="result-title">Protocol-Visible Security Density</div>
-              <p>PoW protocols compute σ<sub>t</sub> := ℋ<sub>t</sub>/Π<sub>t</sub> —
-              the expected irreversible work backing each unit of issuance. No equivalent
-              quantity is computable in PoS systems.</p>
-              <div class="result-math">σ<sub>t</sub> = ℋ<sub>t</sub> / Π<sub>t</sub> &nbsp;[adversarially revealed, protocol-native]</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Corollary</div>
-              <div class="result-title">PoS Displaces, Not Eliminates, Cost</div>
-              <p>PoS redirects security expenditure into validator infrastructure duplication,
-              MEV optimization, governance capture, and institutional overhead —
-              channels that are heterogeneous, opaque, and unmeasurable by the protocol.</p>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Remark</div>
-              <div class="result-title">Long-Range Attack Asymmetry</div>
-              <p>PoS is additionally vulnerable to long-range attacks: old validator keys
-              enable history rewriting at near-zero cost. PoW requires re-expending energy
-              for every block in any rewritten chain — an irreducibly physical guarantee.</p>
-            </div>
-          </div>
-        </div>
-
-        <details class="abstract-details">
-          <summary>Full Abstract</summary>
-          <p>Proof-of-Stake (PoS) systems are commonly described as environmentally efficient
-          alternatives to Proof-of-Work (PoW) on the basis that they avoid continuous hashing.
-          This paper analyzes consensus security from an equilibrium, expectation-based perspective
-          and shows that for any permissionless system offering an externally valued block reward,
-          rational attackers and defenders are incentivized to expend real resources proportional
-          to the expected value at risk. Proof-of-Work expresses this expenditure directly and
-          legibly via energy consumption, while Proof-of-Stake displaces it into heterogeneous
-          and opaque channels such as infrastructure duplication, validator identity proliferation,
-          MEV-driven optimization, governance capture, and institutional overhead. We further show
-          that PoW uniquely provides a protocol-visible measure of security expenditure per unit
-          of issuance, enabling algorithmic reasoning about monetary policy without reliance on
-          social or institutional oracles. These results undermine the claim that PoS eliminates
-          energy costs in equilibrium and establish PoW as a distinct ontological substrate for
-          legible, adversarially revealed security.</p>
-        </details>
+      <div class="triad-connector">
+        <svg viewBox="0 0 80 24" fill="none">
+          <path d="M0 12 H68 M60 5 L68 12 L60 19" stroke="#f0a500" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>enables</span>
+      </div>
+      <div class="triad-node reveal">
+        <div class="triad-num">02</div>
+        <div class="triad-name">Adaptive Monetary Policy</div>
+        <div class="triad-claim">Uses $\sigma_t$ to build oracle-free feedback;
+        stable iff $\phi \in (0,\, 2+2\gamma)$</div>
+      </div>
+      <div class="triad-connector">
+        <svg viewBox="0 0 80 24" fill="none">
+          <path d="M0 12 H68 M60 5 L68 12 L60 19" stroke="#f0a500" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>requires</span>
+      </div>
+      <div class="triad-node reveal">
+        <div class="triad-num">03</div>
+        <div class="triad-name">CashWeb Protocol</div>
+        <div class="triad-claim">Burn-to-speak demand closes the loop;
+        optimal burn $B^* = \sqrt{D\sigma/\alpha}$</div>
       </div>
     </div>
-  </article>
+    <div class="triad-feedback-bar">
+      <div class="feedback-line"></div>
+      <span>burn demand feeds back into price stability</span>
+      <div class="feedback-line"></div>
+    </div>
+  </div>
+</section>
 
-  <!-- ── PAPER 02 ── -->
-  <article class="paper paper--alt" id="adaptive-pow">
-    <div class="container">
-      <div class="paper-header">
-        <div class="paper-meta">
-          <span class="paper-tag">02 / Monetary Mechanism Design</span>
-          <div class="paper-downloads">
-            <a href="pdfs/adaptive-pow-en.pdf" class="dl-btn" download>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              EN
-            </a>
-            <a href="pdfs/adaptive-pow-zh.pdf" class="dl-btn dl-btn--zh" download>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              中文
-            </a>
-          </div>
+<!-- ── PAPERS ── -->
+<div class="papers-section">
+
+<!-- Paper 01 -->
+<article class="paper" id="consensus-energy">
+  <div class="container">
+
+    <div class="paper-header reveal">
+      <div class="paper-meta-row">
+        <span class="paper-tag">01 &mdash; Consensus Theory</span>
+        <div class="paper-dl-row">
+          <a href="pdfs/consensus-energy-en.pdf" class="dl-btn" download>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PDF &middot; EN &middot; 6pp
+          </a>
+          <a href="pdfs/consensus-energy-zh.pdf" class="dl-btn dl-btn--zh" download>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PDF &middot; 中文 &middot; 6pp
+          </a>
         </div>
-        <h2 class="paper-title">Adaptive PoW Monetary Policy Without Oracles: A Constructive Mechanism for Pseudo-Stability via Work-Coupled Tail Emission and Burn</h2>
-        <p class="paper-author">Shammah Chancellor &mdash; Preprint, 2026</p>
-        <p class="paper-claim">
-          A Bitcoin-style chain can achieve price pseudo-stability using only its own
-          difficulty signal and market-driven burn demand — no committees, no oracles, no trust.
-        </p>
       </div>
+      <h2 class="paper-title">Security Expenditure, Energy, and Issuance Legibility in Permissionless Consensus</h2>
+      <p class="paper-author">Shammah Chancellor — Preprint, 2026</p>
+      <blockquote class="paper-claim">
+        Proof-of-Stake does not eliminate energy expenditure — it displaces it into
+        channels the protocol cannot see. Proof-of-Work alone makes security costs
+        legible, enabling algorithmic monetary policy.
+      </blockquote>
+    </div>
 
-      <div class="paper-body">
-        <div class="paper-results">
-          <h3>Key Results</h3>
-          <div class="results-grid">
-            <div class="result-card result-card--highlight">
-              <div class="result-label">Theorem — Lyapunov Stability</div>
-              <div class="result-title">Two-Loop Mechanism is Formally Stable</div>
-              <p>If price sensitivity φ ∈ (0, 2+2γ), the coupled tail-emission and
-              burn-feedback system satisfies a discrete Lyapunov condition: work deviation
-              w<sub>n</sub> → 0 geometrically, net supply deviation ΔS<sub>n</sub>/S → 0,
-              and tail issuance converges.</p>
-              <div class="result-math">φ ∈ (0, 2+2γ) &nbsp;⟹&nbsp; ΔV<sub>n</sub> ≤ −η V<sub>n</sub></div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Construction</div>
-              <div class="result-title">Sublinear Homomorphic Emission Rule</div>
-              <p>Tail subsidy updates multiplicatively from observable block headers,
-              with sublinear exponent γ ∈ (0,1) providing negative-feedback stability
-              and manipulation resistance simultaneously.</p>
-              <div class="result-math">R<sup>tail</sup><sub>n+1</sub> = clip(R<sup>tail</sup><sub>n</sub> · (W<sub>n</sub>/W<sub>n−1</sub>)<sup>γ</sup>, R<sub>min</sub>, R<sub>max</sub>)</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Proposition</div>
-              <div class="result-title">Oracle-Free Demand Sink</div>
-              <p>With N advertisers each holding fixed fiat budget b, burn demand scales
-              as B<sup>b2s</sup> ≈ Nb/P<sub>n</sub>. As price falls, coin-denominated burn
-              rises — the sink strengthens in exactly the direction required for stability.</p>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Analysis</div>
-              <div class="result-title">Manipulation Resistance</div>
-              <p>A miner controlling fraction μ of hashpower finds manipulation profitable
-              only when μγR<sup>tail</sup><sub>n</sub> > P<sub>n</sub>(R<sub>n</sub> + (1−β)F<sub>n</sub>).
-              As γ → 0 this threshold approaches 1, making the mechanism increasingly robust.</p>
-            </div>
-          </div>
-        </div>
-
-        <details class="abstract-details">
-          <summary>Full Abstract</summary>
-          <p>This paper proposes a constructive alternative to Bitcoin that retains
-          Proof-of-Work while enabling pseudo-stability without reliance on discretionary
-          governance or external price oracles, offering an adversarial alternative to
-          committee-managed indices such as CPI that depend on subjective methodology and
-          institutional measurement. Building on the observation that PoW exposes
-          protocol-visible security expenditure through difficulty, we specify a two-loop
-          mechanism: (i) an adaptive, work-coupled tail emission rule defined entirely from
-          header-observable variables and prior consensus state, and (ii) a market-driven
-          burn mechanism (burn-to-speak and partial fee burn) that provides an endogenous
-          demand sink without any oracle. The design is expressed in expectation terms and
-          uses homomorphic (ratio-based) update equations to avoid discontinuities and reduce
-          manipulability. We prove formal Lyapunov stability of the two-loop mechanism under
-          linearized dynamics, characterize the stability region φ ∈ (0, 2+2γ), and discuss
-          implementability within Bitcoin-style daemon and validation architecture.</p>
-        </details>
+    <div class="results-grid reveal">
+      <div class="result-card">
+        <div class="result-label">Theorem</div>
+        <div class="result-title">Equilibrium Security Expenditure</div>
+        <p>In any permissionless system offering an externally priced block reward,
+        rational defenders expend resources proportional to expected value at risk — regardless
+        of consensus mechanism.</p>
+        <div class="result-math">$\mathbb{E}[C^{\mathrm{def}}_t] \gtrsim \alpha\,\mathbb{E}[V_t]$</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Theorem</div>
+        <div class="result-title">Protocol-Visible Security Density</div>
+        <p>PoW protocols compute $\sigma_t$, the expected irreversible work backing each unit
+        of issuance. No equivalent quantity is computable from PoS consensus state.</p>
+        <div class="result-math">$\sigma_t \;:=\; \mathcal{H}_t \,/\, \Pi_t$</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Corollary</div>
+        <div class="result-title">PoS Displaces, Not Eliminates</div>
+        <p>Expenditure shifts into validator infrastructure duplication, MEV optimization,
+        governance capture, and institutional overhead — heterogeneous, opaque, unmeasurable.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Remark</div>
+        <div class="result-title">Long-Range Attack Asymmetry</div>
+        <p>Old PoS validator keys enable history rewriting at near-zero cost. PoW requires
+        re-expending energy for every block rewritten — an irreducibly physical guarantee.</p>
       </div>
     </div>
-  </article>
 
-  <!-- ── PAPER 03 ── -->
-  <article class="paper" id="cashweb">
-    <div class="container">
-      <div class="paper-header">
-        <div class="paper-meta">
-          <span class="paper-tag">03 / Protocol Design</span>
-          <div class="paper-downloads">
-            <a href="pdfs/cashweb-en.pdf" class="dl-btn" download>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg>
-              EN
-            </a>
-            <a href="pdfs/cashweb-zh.pdf" class="dl-btn dl-btn--zh" download>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/></svg>
-              中文
-            </a>
-          </div>
+    <details class="abstract-details">
+      <summary>Full Abstract</summary>
+      <p>Proof-of-Stake (PoS) systems are commonly described as environmentally efficient
+      alternatives to Proof-of-Work (PoW) on the basis that they avoid continuous hashing.
+      This paper analyzes consensus security from an equilibrium, expectation-based perspective
+      and shows that for any permissionless system offering an externally valued block reward,
+      rational attackers and defenders are incentivized to expend real resources proportional
+      to the expected value at risk. Proof-of-Work expresses this expenditure directly and
+      legibly via energy consumption, while Proof-of-Stake displaces it into heterogeneous
+      and opaque channels such as infrastructure duplication, validator identity proliferation,
+      MEV-driven optimization, governance capture, and institutional overhead. We further show
+      that PoW uniquely provides a protocol-visible measure of security expenditure per unit
+      of issuance, enabling algorithmic reasoning about monetary policy without reliance on
+      social or institutional oracles.</p>
+    </details>
+
+    <div class="citation-block">
+      <div class="citation-label">Cite as</div>
+      <code>Chancellor, S. (2026). Security Expenditure, Energy, and Issuance Legibility in Permissionless Consensus. Preprint.</code>
+    </div>
+
+  </div>
+</article>
+
+<!-- Paper 02 -->
+<article class="paper paper--alt" id="adaptive-pow">
+  <div class="container">
+
+    <div class="paper-header reveal">
+      <div class="paper-meta-row">
+        <span class="paper-tag">02 &mdash; Monetary Mechanism Design</span>
+        <div class="paper-dl-row">
+          <a href="pdfs/adaptive-pow-en.pdf" class="dl-btn" download>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PDF &middot; EN &middot; 14pp
+          </a>
+          <a href="pdfs/adaptive-pow-zh.pdf" class="dl-btn dl-btn--zh" download>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PDF &middot; 中文 &middot; 12pp
+          </a>
         </div>
-        <h2 class="paper-title">CashWeb: Federated Messaging with Cryptocurrency-Based Economic Anti-Spam</h2>
-        <p class="paper-author">Shammah Chancellor &mdash; Preprint, 2026</p>
-        <p class="paper-claim">
-          Decentralized spam-resistant messaging — without moderators, without platforms,
-          without trust — using cryptographically verified burn payments to price out abuse.
-        </p>
       </div>
+      <h2 class="paper-title">Adaptive PoW Monetary Policy Without Oracles: A Constructive Mechanism for Pseudo-Stability via Work-Coupled Tail Emission and Burn</h2>
+      <p class="paper-author">Shammah Chancellor — Preprint, 2026</p>
+      <blockquote class="paper-claim">
+        A Bitcoin-style chain can achieve price pseudo-stability using only its own difficulty
+        signal and market-driven burn demand. No committees. No oracles. Provably convergent.
+      </blockquote>
+    </div>
 
-      <div class="paper-body">
-        <div class="paper-results">
-          <h3>Key Results</h3>
-          <div class="results-grid">
-            <div class="result-card">
-              <div class="result-label">Theorem</div>
-              <div class="result-title">Optimal Burn Rate in Closed Form</div>
-              <p>The social-welfare-maximizing burn rate balances spam deterrence against
-              legitimate-user accessibility. Higher spam damage or propensity raises B*;
-              lower legitimate-user marginal cost raises B*.</p>
-              <div class="result-math">B* = √(Dσ / α)</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Theorem</div>
-              <div class="result-title">Fee Recycling Resistance</div>
-              <p>Under partial fee burn (fraction β burned), an attacker controlling
-              fraction μ of network hashpower recovers at most (1−β)μ of attack costs.
-              Net attack cost remains positive for all μ &lt; β.</p>
-              <div class="result-math">Cost<sub>net</sub> &gt; 0 &nbsp;⟺&nbsp; μ &lt; β</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Proposition</div>
-              <div class="result-title">Sybil Attack Bound</div>
-              <p>Sybil attacks scale linearly with attacker budget rather than
-              computational resources. Economic cost anchoring eliminates the
-              fundamental asymmetry that makes spam viable on legacy networks.</p>
-              <div class="result-math">N<sub>sybil</sub> ≤ ℬ / (v<sub>reg</sub> + k · v<sub>msg</sub>)</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Protocol</div>
-              <div class="result-title">Proof-of-Payment (POP)</div>
-              <p>Complete specification linking on-chain value destruction to off-chain
-              messaging. Unspendable OP_RETURN outputs create verifiable, unrecoverable
-              burns without trusted intermediaries — deployable on Lotus today.</p>
-            </div>
-          </div>
-        </div>
-
-        <details class="abstract-details">
-          <summary>Full Abstract</summary>
-          <p>We present CashWeb, a comprehensive protocol suite that integrates
-          cryptocurrency-based economic mechanisms with federated messaging infrastructure
-          to enable spam-resistant communication without centralized moderation. The protocol
-          employs a novel "burn-to-speak" anti-spam mechanism where message senders attach
-          small cryptocurrency payments that are cryptographically verifiable but do not
-          require trusted intermediaries. We provide formal specifications for three core
-          components: (1) a Proof-of-Payment (POP) protocol that links on-chain value to
-          off-chain actions, (2) federated messaging with cryptographic identity management,
-          and (3) a publish-subscribe system for topic-based broadcasting. Our economic
-          analysis demonstrates that the burn mechanism creates optimal deterrence against
-          spam while preserving accessibility for legitimate communication. The system
-          architecture leverages established web standards (HTTP/2, WebSockets) and
-          cryptographic primitives to enable seamless integration with existing
-          infrastructure. Theoretical analysis shows the protocol achieves spam resistance
-          with costs scaling sublinearly in network size, while empirical deployment
-          demonstrates practical viability for real-time messaging applications.</p>
-        </details>
+    <div class="results-grid reveal">
+      <div class="result-card result-card--highlight">
+        <div class="result-label">Theorem — Lyapunov Stability</div>
+        <div class="result-title">Two-Loop Mechanism is Formally Stable</div>
+        <p>If price sensitivity $\phi$ lies in the stability region, the tail-emission
+        and burn-feedback system satisfies a discrete Lyapunov condition and converges geometrically.</p>
+        <div class="result-math">$\phi \in (0,\, 2+2\gamma) \;\Longrightarrow\; \Delta V_n \leq -\eta\, V_n$</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Construction</div>
+        <div class="result-title">Sublinear Homomorphic Emission Rule</div>
+        <p>Tail subsidy updates multiplicatively from observable block headers alone.
+        Sublinear exponent $\gamma \in (0,1)$ provides both stability and manipulation resistance.</p>
+        <div class="result-math">$R^{\mathrm{tail}}_{n+1} = \mathrm{clip}\!\left(R^{\mathrm{tail}}_n \cdot \left(\frac{W_n}{W_{n-1}}\right)^{\!\gamma},\; R_{\min}, R_{\max}\right)$</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Proposition</div>
+        <div class="result-title">Oracle-Free Demand Sink</div>
+        <p>With $N$ advertisers holding fixed fiat budget $b$, coin-denominated burn demand
+        rises as price falls — the sink strengthens in exactly the direction required for stability.</p>
+        <div class="result-math">$B^{\mathrm{b2s}}_n \approx Nb\,/\,P_n$</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Analysis</div>
+        <div class="result-title">Manipulation Resistance</div>
+        <p>A miner controlling fraction $\mu$ finds suppression profitable only when the gain
+        exceeds the cost of foregone rewards. The threshold tightens as $\gamma \to 0$.</p>
+        <div class="result-math">$\mu\gamma R^{\mathrm{tail}}_n \;\leq\; P_n(R_n + (1-\beta)F_n)$</div>
       </div>
     </div>
-  </article>
 
-</div>
+    <details class="abstract-details">
+      <summary>Full Abstract</summary>
+      <p>This paper proposes a constructive alternative to Bitcoin that retains Proof-of-Work
+      while enabling pseudo-stability without reliance on discretionary governance or external
+      price oracles, offering an adversarial alternative to committee-managed indices such as
+      CPI. Building on the observation that PoW exposes protocol-visible security expenditure
+      through difficulty, we specify a two-loop mechanism: (i) an adaptive, work-coupled tail
+      emission rule defined entirely from header-observable variables and prior consensus state,
+      and (ii) a market-driven burn mechanism that provides an endogenous demand sink without
+      any oracle. We prove formal Lyapunov stability of the two-loop mechanism under linearized
+      dynamics, characterize the stability region $\phi \in (0, 2+2\gamma)$, and discuss
+      implementability within Bitcoin-style daemon and validation architecture.</p>
+    </details>
 
-<!-- ── ABOUT / CTA ────────────────────────────────────── -->
+    <div class="citation-block">
+      <div class="citation-label">Cite as</div>
+      <code>Chancellor, S. (2026). Adaptive PoW Monetary Policy Without Oracles. Preprint.</code>
+    </div>
+
+  </div>
+</article>
+
+<!-- Paper 03 -->
+<article class="paper" id="cashweb">
+  <div class="container">
+
+    <div class="paper-header reveal">
+      <div class="paper-meta-row">
+        <span class="paper-tag">03 &mdash; Protocol Design</span>
+        <div class="paper-dl-row">
+          <a href="pdfs/cashweb-en.pdf" class="dl-btn" download>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PDF &middot; EN &middot; 21pp
+          </a>
+          <a href="pdfs/cashweb-zh.pdf" class="dl-btn dl-btn--zh" download>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PDF &middot; 中文 &middot; 17pp
+          </a>
+        </div>
+      </div>
+      <h2 class="paper-title">CashWeb: Federated Messaging with Cryptocurrency-Based Economic Anti-Spam</h2>
+      <p class="paper-author">Shammah Chancellor — Preprint, 2026</p>
+      <blockquote class="paper-claim">
+        Spam is solved the same way every economic problem is solved: price it.
+        CashWeb uses cryptographic burn payments to make abuse irrational, without
+        moderators, platforms, or trust.
+      </blockquote>
+    </div>
+
+    <div class="results-grid reveal">
+      <div class="result-card">
+        <div class="result-label">Theorem</div>
+        <div class="result-title">Optimal Burn Rate in Closed Form</div>
+        <p>The welfare-maximizing burn rate balances spam deterrence against legitimate-user
+        accessibility. Higher spam damage $D$ or propensity $\sigma$ raises $B^*$.</p>
+        <div class="result-math">$B^* = \sqrt{D\sigma \,/\, \alpha}$</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Theorem</div>
+        <div class="result-title">Fee Recycling Resistance</div>
+        <p>Under partial fee burn (fraction $\beta$ burned), an attacker controlling
+        fraction $\mu$ of hashpower recovers at most $(1-\beta)\mu$ of attack costs.</p>
+        <div class="result-math">$\mathrm{Cost}_{\mathrm{net}} > 0 \;\Longleftrightarrow\; \mu < \beta$</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Proposition</div>
+        <div class="result-title">Sybil Attack Bound</div>
+        <p>Sybil attacks scale linearly with attacker <em>budget</em>, not computational
+        resources. Economic anchoring eliminates the asymmetry that makes spam viable on legacy networks.</p>
+        <div class="result-math">$N_{\mathrm{sybil}} \;\leq\; \mathcal{B} \,/\, (v_{\mathrm{reg}} + k\,v_{\mathrm{msg}})$</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Protocol Spec</div>
+        <div class="result-title">Proof-of-Payment (POP)</div>
+        <p>Complete specification linking on-chain value destruction to off-chain messaging
+        via OP_RETURN outputs. Verifiable, unrecoverable burns with no trusted intermediaries.
+        Deployable on Lotus today.</p>
+      </div>
+    </div>
+
+    <details class="abstract-details">
+      <summary>Full Abstract</summary>
+      <p>We present CashWeb, a comprehensive protocol suite that integrates cryptocurrency-based
+      economic mechanisms with federated messaging infrastructure to enable spam-resistant
+      communication without centralized moderation. The protocol employs a novel "burn-to-speak"
+      anti-spam mechanism where message senders attach small cryptocurrency payments that are
+      cryptographically verifiable but do not require trusted intermediaries. We provide formal
+      specifications for three core components: (1) a Proof-of-Payment (POP) protocol that
+      links on-chain value to off-chain actions, (2) federated messaging with cryptographic
+      identity management, and (3) a publish-subscribe system for topic-based broadcasting.
+      Our economic analysis demonstrates that the burn mechanism creates optimal deterrence
+      against spam while preserving accessibility for legitimate communication.</p>
+    </details>
+
+    <div class="citation-block">
+      <div class="citation-label">Cite as</div>
+      <code>Chancellor, S. (2026). CashWeb: Federated Messaging with Cryptocurrency-Based Economic Anti-Spam. Preprint.</code>
+    </div>
+
+  </div>
+</article>
+
+</div><!-- /papers-section -->
+
+<!-- ── CTA ── -->
 <section class="cta">
   <div class="container">
     <div class="cta-inner">
       <div class="cta-text">
         <h2>Join the Conversation</h2>
-        <p>
-          These papers are the theoretical foundation for a working Proof-of-Work network.
-          Discuss the research, follow development, and help build the implementation
-          on Telegram.
-        </p>
+        <p>These papers are the theoretical foundation for a working Proof-of-Work network.
+        Discuss the research, follow development, and help build the implementation.</p>
       </div>
       <a href="https://t.me/TheLotusNetwork" class="btn btn--telegram" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.67l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.958.889z"/></svg>
@@ -404,48 +477,119 @@
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────── -->
+<!-- ── FOOTER ── -->
 <footer>
   <div class="container">
     <div class="footer-inner">
       <div class="footer-logo">
-        <svg class="logo-hex" viewBox="0 0 32 32" fill="none"><polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#f0a500" stroke-width="1.5" fill="none"/></svg>
+        <svg class="logo-hex" viewBox="0 0 32 32" fill="none">
+          <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#f0a500" stroke-width="1.5" fill="none"/>
+        </svg>
         Lotus Network
       </div>
       <div class="footer-links">
-        <a href="pdfs/consensus-energy-en.pdf" download>Paper 01 (EN)</a>
-        <a href="pdfs/adaptive-pow-en.pdf" download>Paper 02 (EN)</a>
-        <a href="pdfs/cashweb-en.pdf" download>Paper 03 (EN)</a>
+        <a href="pdfs/consensus-energy-en.pdf" download>Paper 01</a>
+        <a href="pdfs/adaptive-pow-en.pdf" download>Paper 02</a>
+        <a href="pdfs/cashweb-en.pdf" download>Paper 03</a>
         <a href="https://t.me/TheLotusNetwork" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>
-    <p class="footer-copy">&copy; 2026 Shammah Chancellor. Released as preprints.</p>
+    <p class="footer-copy">&copy; 2026 Shammah Chancellor. Released as preprints. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-  // Download-all button bundles all 6 PDFs
-  document.getElementById('download-all').addEventListener('click', function(e) {
-    e.preventDefault();
-    const pdfs = [
-      'pdfs/consensus-energy-en.pdf',
-      'pdfs/consensus-energy-zh.pdf',
-      'pdfs/adaptive-pow-en.pdf',
-      'pdfs/adaptive-pow-zh.pdf',
-      'pdfs/cashweb-en.pdf',
-      'pdfs/cashweb-zh.pdf',
-    ];
-    pdfs.forEach((url, i) => {
-      setTimeout(() => {
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = url.split('/').pop();
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }, i * 300);
+// ── Animated hex canvas background ──────────────────────
+(function() {
+  const canvas = document.getElementById('hex-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, hexes = [];
+
+  const HEX_SIZE = 38;
+  const HEX_COLOR = 'rgba(240,165,0,';
+
+  function hexPath(cx, cy, r) {
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+      const a = Math.PI / 180 * (60 * i - 30);
+      const x = cx + r * Math.cos(a);
+      const y = cy + r * Math.sin(a);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+  }
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    buildHexes();
+  }
+
+  function buildHexes() {
+    hexes = [];
+    const w = HEX_SIZE * Math.sqrt(3);
+    const h = HEX_SIZE * 2;
+    const cols = Math.ceil(W / w) + 2;
+    const rows = Math.ceil(H / (h * 0.75)) + 2;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const cx = c * w + (r % 2 === 0 ? 0 : w / 2) - w;
+        const cy = r * (h * 0.75) - h / 2;
+        hexes.push({
+          cx, cy,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.0003 + Math.random() * 0.0004,
+          baseAlpha: 0.02 + Math.random() * 0.04,
+        });
+      }
+    }
+  }
+
+  let lastTime = 0;
+  function draw(time) {
+    const dt = time - lastTime;
+    lastTime = time;
+    ctx.clearRect(0, 0, W, H);
+    hexes.forEach(h => {
+      h.phase += h.speed * dt;
+      const alpha = h.baseAlpha + Math.sin(h.phase) * 0.015;
+      ctx.strokeStyle = HEX_COLOR + Math.max(0, alpha) + ')';
+      ctx.lineWidth = 0.75;
+      hexPath(h.cx, h.cy, HEX_SIZE - 2);
+      ctx.stroke();
     });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  requestAnimationFrame(draw);
+})();
+
+// ── Scroll reveal ────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('revealed');
+      revealObserver.unobserve(e.target);
+    }
   });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── Download all ─────────────────────────────────────────
+document.getElementById('download-all').addEventListener('click', function(e) {
+  e.preventDefault();
+  ['pdfs/consensus-energy-en.pdf','pdfs/consensus-energy-zh.pdf',
+   'pdfs/adaptive-pow-en.pdf','pdfs/adaptive-pow-zh.pdf',
+   'pdfs/cashweb-en.pdf','pdfs/cashweb-zh.pdf'].forEach((url, i) => {
+    setTimeout(() => {
+      const a = Object.assign(document.createElement('a'), {href:url, download:url.split('/').pop()});
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }, i * 250);
+  });
+});
 </script>
 
 </body>
